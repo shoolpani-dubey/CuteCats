@@ -11,5 +11,8 @@ interface IBreedItem {
   width: number;
   height: number;
 }
-
-export type { IBreed, IBreedItem };
+interface ICatDetails {
+  url: string;
+  breeds: IBreed[];
+}
+export type { IBreed, IBreedItem, ICatDetails };

@@ -4,7 +4,7 @@ async function getCatBreeds() {
   };
   try {
     const resp = await fetch(
-      "https://api.thecatapi.com/v1/breeds",
+      import.meta.env.VITE_SERVER_URL + "breeds",
       requestOptions
     );
     const respJson = await resp.json();
@@ -25,7 +25,9 @@ async function fetchBreedDetails(
 
   try {
     const resp = await fetch(
-      `https://api.thecatapi.com/v1/images/search?page=${searchPage}&limit=${pageSize}&breed_id=${breedId}`,
+      `${
+        import.meta.env.VITE_SERVER_URL
+      }images/search?page=${searchPage}&limit=${pageSize}&breed_id=${breedId}`,
       requestOptions
     );
     const respJson = await resp.json();

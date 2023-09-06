@@ -4,7 +4,7 @@ import style from "./index.module.scss";
 import { useNavigate } from "react-router-dom";
 
 interface ICatBreedsList {
-  breedList: [];
+  breedList: IBreedItem[];
 }
 export default function CatBreedsList(props: ICatBreedsList) {
   const navigate = useNavigate();

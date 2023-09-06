@@ -1,10 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { IBreed } from "../../types";
-interface ICatDetails {
-  url: string;
-  breeds: IBreed[];
-}
+import { ICatDetails } from "../../types";
 interface ICatDetailsCard {
   handleBackClick: () => void;
   catDetails: ICatDetails | null;

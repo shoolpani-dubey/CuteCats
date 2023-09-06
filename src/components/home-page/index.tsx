@@ -4,11 +4,15 @@ import CatBreedsList from "../cat-breeds-list";
 import { fetchBreedDetails, getCatBreeds } from "./index.service";
 import { useSearchParams } from "react-router-dom";
 import Error from "./error";
+import { IBreedItem } from "../../types";
+import LoadMore from "./load";
 
 export default function HomePage() {
   const [selectedBreed, setSelectedBreed] = useState<string>("");
   const [breeds, setBreeds] = useState([]);
-  const [selectedBreedList, setSelectedBreedList] = useState([]);
+  const [selectedBreedList, setSelectedBreedList] = useState<IBreedItem[] | []>(
+    []
+  );
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchPage, setSearchPage] = useState(1);
   const [showMore, setShowMore] = useState(false);
@@ -75,6 +79,7 @@ export default function HomePage() {
       return;
     }
     setSearchParams({ breedId: selectedBreed });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBreed]);
 
   useEffect(() => {
@@ -90,7 +95,7 @@ export default function HomePage() {
       />
       <Error error={error} setError={setError} />
       <CatBreedsList breedList={selectedBreedList} />
-      {showMore && <button onClick={handleLoadMore}>Load More</button>}
+      <LoadMore showMore={showMore} handleLoadMore={handleLoadMore} />
     </div>
   );
 }
