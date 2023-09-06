@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./components/home-page";
 import CatDetails from "./components/cat-details-page";
 import "bootstrap/dist/css/bootstrap.min.css";
+import style from "./main.module.scss";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  <div className={style.pageWrapper}>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </div>
 );
